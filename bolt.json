@@ -1,0 +1,7 @@
+{
+    "scripts": {
+        "docs": "jsdoc src/focos.js -c jsdoc/conf.json --verbose",
+        "lint": "eslint . --color",
+        "build": "webpack --progress --colors"
+    }
+}

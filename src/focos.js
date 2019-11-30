@@ -1,6 +1,6 @@
 /*!
  * Focos
- * Add focus to elements on the screen referenced as a grid
+ * Add focus to elements on the screen referenced by coordinates
  * (c) 2019 Verdexdesign
  */
 
@@ -222,5 +222,4 @@ function focosInner(opts, callback) {
     });
 }
 
-// expose API
-window.focos = focosInner;
+module.exports = focosInner;

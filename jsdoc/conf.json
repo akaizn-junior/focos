@@ -1,0 +1,40 @@
+{
+	"tags": {
+		"allowUnknownTags": true,
+		"dictionaries": ["jsdoc"]
+	},
+	"plugins": [
+		"plugins/markdown"
+	],
+	"templates": {
+		"cleverLinks": true,
+		"default": {
+			"outputSourcePath": true,
+			"outputSourceFiles": true,
+			"includeDate": false,
+			"useLongnameInNav": false
+		}
+	},
+	"opts": {
+		"destination": "docs",
+		"template": "node_modules/docdash",
+		"encoding": "utf8",
+		"recursive": true,
+		"readme": "./README.md"
+	},
+	"meta": {
+		"title": "Documentation / Focos",
+		"description": "Add focus to elements on the screen referenced by coordinates",
+		"keyword": "focus, focos, grid, cell, html, elements"
+	},
+	"docdash": {
+		"menu": {
+			"Glitch Demo (minified prod version)": {
+				"href": "https://focos.glitch.me/",
+				"target": "_blank",
+				"class":"menu-item",
+                "id":"demo_prod"
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+{
+    "name": "focos",
+    "version": "0.0.1",
+    "description": "Add focus to elements on the screen referenced by coordinates",
+    "main": "src/focos.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/verdebydesign/focos.git"
+    },
+    "author": "Simao Nziaka",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/verdebydesign/focos/issues"
+    },
+    "homepage": "https://github.com/verdebydesign/focos#readme",
+    "devDependencies": {
+        "@babel/core": "^7.7.4",
+        "@babel/preset-env": "^7.7.4",
+        "babel-eslint": "^10.0.3",
+        "babel-loader": "^8.0.6",
+        "bolt": "git+https://github.com/verdebydesign/bolt.git",
+        "docdash": "^1.1.1",
+        "dotenv": "^8.2.0",
+        "eslint": "^6.7.1",
+        "jsdoc": "^3.6.3",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10"
+    }
+}

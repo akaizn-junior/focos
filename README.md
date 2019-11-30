@@ -15,7 +15,7 @@ Add focus to elements on the screen referenced by coordinates
 ```js
 // Initialize focos
 ...
-window.focos({
+window.Focos({
     keys: { // optional | default arrow keys
       w: 'up',
       a: 'left',
