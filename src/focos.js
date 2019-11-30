@@ -222,4 +222,4 @@ function focosInner(opts, callback) {
     });
 }
 
-module.exports = focosInner;
+window.focos = focosInner;

@@ -12,8 +12,7 @@ const settings = {
     src: 'src/focos.js',
     libname: process.env.NAME.toLowerCase(),
     libtarget: 'window',
-    outdir: DEV ? 'dev' : 'dist',
-    latestDir: 'latest'
+    outdir: DEV ? 'dev' : 'dist'
 };
 
 // setup config
