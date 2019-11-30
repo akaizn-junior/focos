@@ -4,7 +4,7 @@
  * (c) 2019 Verdexdesign
  */
 
-const globals = {
+const $$g = {
     globalPoint: [0, 0],
     ops: ['up', 'down', 'left', 'right'], // focos operations
     callback: () => {}
@@ -105,7 +105,7 @@ function focusTarget(element) {
 function focusCell(grid, point) {
     const cell = getCellValue(grid, point);
     focusTarget(cell);
-    return globals.callback(cell, point);
+    return $$g.callback(cell, point);
 }
 
 function buildGrid(height, elems) {
@@ -166,7 +166,7 @@ function validOpts(opts) {
 
 function focosInner(opts, callback) {
     let { keys, initialFocus, step, size, focusOnClick } = validOpts(opts);
-    callback && (globals.callback = callback);
+    callback && ($$g.callback = callback);
 
     // read all relevant elements
     const elems = document.querySelectorAll('[data-focos-cell]');
@@ -179,13 +179,13 @@ function focosInner(opts, callback) {
     const grid = buildGrid(height, elems);
 
     // editable global entry point, will be focused first if enabled
-    initialFocus && (globals.globalPoint = initialFocus);
+    initialFocus && ($$g.globalPoint = initialFocus);
 
     // origin point
     let origin = [0, 0];
 
     // add initial focus to a cell if enabled
-    focusFirst(initialFocus, grid, globals.globalPoint);
+    focusFirst(initialFocus, grid, $$g.globalPoint);
 
     // track key presses
     let keyPressCount = 0;
@@ -197,9 +197,9 @@ function focosInner(opts, callback) {
 
         !isCell && clearFocus();
         if (isCell && focusOnClick) {
-            globals.globalPoint = validFocosDataset(t.dataset.focosCell).cell;
+            $$g.globalPoint = validFocosDataset(t.dataset.focosCell).cell;
             clearFocus();
-            focusCell(grid, globals.globalPoint);
+            focusCell(grid, $$g.globalPoint);
         }
     };
 
@@ -212,10 +212,10 @@ function focosInner(opts, callback) {
             const op = keys[key] || keys[keyCode];
             const includeFirst = keyPressCount === 0 && !initialFocus;
 
-            if (globals.ops.indexOf(op) !== -1) {
-                globals.globalPoint = nextPoint(globals.globalPoint, origin, width, height, step)[op](includeFirst);
+            if ($$g.ops.indexOf(op) !== -1) {
+                $$g.globalPoint = nextPoint($$g.globalPoint, origin, width, height, step)[op](includeFirst);
                 clearFocus();
-                focusCell(grid, globals.globalPoint);
+                focusCell(grid, $$g.globalPoint);
                 keyPressCount = 1;
             }
         }
