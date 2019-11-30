@@ -40,6 +40,11 @@ window.focos({
 Focos will read the HTML above and create a 2x1 grid navigable by the keys "w,a,d,z".
 Cell "0,1" will get initial focus, meaning it gets focused as soon as the page loads.
 
+## Documentation
+
+- [Source](https://verdebydesign.github.io/focos/)
+- [Demo](https://focos.glitch.me/)
+
 ## Author
 
 &copy; 2019 Simao Nziaka
