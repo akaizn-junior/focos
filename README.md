@@ -1,5 +1,7 @@
 # Focos
 
+![Eyeglass](https://cdn.glitch.com/f00a44c3-a2c4-40b6-9bce-33109af914c4%2Fgold-monocle64.png?v=1575107372971)
+
 Add focus to elements on the screen referenced by coordinates
 
 ## Usage
@@ -36,7 +38,7 @@ window.focos({
 ```
 
 Focos will read the HTML above and create a 2x1 grid navigable by the keys "w,a,d,z".
-Cell "0,1" will get initial focus, meaning will be focused on render.
+Cell "0,1" will get initial focus, meaning it gets focused as soon as the page loads.
 
 ## Author
 
