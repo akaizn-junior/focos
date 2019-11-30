@@ -61,21 +61,24 @@
 <p>Add focus to elements on the screen referenced by coordinates</p>
 <h2>Usage</h2>
 <pre class="prettyprint source lang-html"><code>    ...
-    &lt;div data-focos-cell=&quot;0,2&quot;>&lt;/div>
-    &lt;div data-focos-cell=&quot;0,1&quot;>&lt;/div>
-    &lt;div data-focos-cell=&quot;0,2&quot;>&lt;/div>
+    &lt;div data-focos-cell=&quot;0,1&quot;>D&lt;/div>
+    &lt;div data-focos-cell=&quot;1,1&quot;>E&lt;/div>
+    &lt;div data-focos-cell=&quot;2,1&quot;>F&lt;/div>
+    &lt;div data-focos-cell=&quot;0,0&quot;>A&lt;/div>
+    &lt;div data-focos-cell=&quot;1,0&quot;>B&lt;/div>
+    &lt;div data-focos-cell=&quot;2,0&quot;>C&lt;/div>
     ...
 </code></pre>
 <pre class="prettyprint source lang-js"><code>// Initialize focos
 ...
-window.Focos({
+window.focos({
     keys: { // optional | default arrow keys
       w: 'up',
       a: 'left',
       d: 'rigth',
       z: 'down'
     },
-    gridSize: '3x1', // required | if bad value fallbacks to '1x1'
+    gridSize: '2x1', // required | if bad value fallbacks to '1x1'
     step: 1, // optional | default '1'
     focusOnClick: true, // optional | default 'false'
     initialFocus: [0, 1] // optional | default 'undefined'
@@ -84,6 +87,8 @@ window.Focos({
 });
 ...
 </code></pre>
+<p>Focos will read the HTML above and create a 2x1 grid navigable by the keys &quot;w,a,d,z&quot;.
+Cell &quot;0,1&quot; will get initial focus, meaning will be focused on render.</p>
 <h2>Author</h2>
 <p>© 2019 Simao Nziaka</p></article>
     </section>
