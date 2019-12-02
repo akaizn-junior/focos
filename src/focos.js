@@ -84,10 +84,10 @@ function getCellValue(grid, point) {
     return grid[y] && grid[y][x] ? grid[y][x] : grid[0][0];
 }
 
-function validFocosDataset(dataset) {
-    if (dataset) {
-        let x = parseInt(dataset.split(',')[0], 10);
-        let y = parseInt(dataset.split(',')[1], 10);
+function validFocosDataset(cellData) {
+    if (cellData) {
+        let x = parseInt(cellData.split(',')[0], 10);
+        let y = parseInt(cellData.split(',')[1], 10);
         return { cell: [x, y], class: 'cell'.concat(x, y) };
     }
 
@@ -164,7 +164,7 @@ function validOpts(opts) {
     };
 }
 
-function focosInner(opts, callback) {
+function focos(opts, callback) {
     let { keys, initialFocus, step, size, focusOnClick } = validOpts(opts);
     callback && ($$g.callback = callback);
 
@@ -222,4 +222,5 @@ function focosInner(opts, callback) {
     });
 }
 
-window.focos = focosInner;
+// expose the API
+window['focos'] = focos;
