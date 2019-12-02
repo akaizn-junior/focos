@@ -227,7 +227,7 @@ function run(opts, elems) {
 }
 
 function focos(opts, callback) {
-    const ref = opts.id;
+    const ref = opts.id || 'noref';
 
     // stop if this grid is already built
     if ($$g.grids[ref]) {

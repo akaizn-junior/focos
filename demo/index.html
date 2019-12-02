@@ -163,7 +163,6 @@
     <script src="../src/focos.js"></script>
     <script>
         window.focos({
-            id: 'grid',
             gridSize: '5x4',
             focusOnClick: true,
             initialFocus: [0, 4],
@@ -172,14 +171,6 @@
                 z: "down",
                 a: "left",
                 d: "right",
-            }
-        });
-
-        window.focos({
-            id: 'grid2',
-            gridSize: '4x1',
-            initialFocus: [0, 0],
-            keys: {
                 ArrowUp: "up",
                 ArrowDown: "down",
                 ArrowLeft: "left",
