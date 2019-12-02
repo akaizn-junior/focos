@@ -70,11 +70,25 @@ function nextPoint(point, origin, width, height, step = 1) {
     };
 }
 
+function focosSubject(elem) {
+    if (elem && elem.dataset.focosSubject) {
+        const subject = elem.dataset.focosSubject;
+        const child = subject.includes('child') && subject;
+        const childIndex = child && subject.split('-')[1];
+        return childIndex && elem.children[childIndex]
+            ? elem.children[childIndex]
+            : elem;
+    }
+
+    return elem;
+}
+
 function clearFocus() {
-    const currFocus = document.getElementsByClassName('focused')[0];
-    if (currFocus) {
-        currFocus.classList.remove('focused');
-        currFocus.removeAttribute('tabindex');
+    const subject = focosSubject(document.getElementsByClassName('focused')[0]);
+
+    if (subject) {
+        subject.classList.remove('focused');
+        subject.removeAttribute('tabindex');
     }
 }
 
@@ -95,10 +109,11 @@ function validFocosDataset(cellData) {
 }
 
 function focusTarget(element) {
-    if (element && element.focus) {
-        element.setAttribute('tabindex', '0');
-        element.focus();
-        element.classList.add('focused');
+    const subject = focosSubject(element);
+    if (subject) {
+        subject.setAttribute('tabindex', '0');
+        subject.focus && subject.focus();
+        subject.classList.add('focused');
     }
 }
 
@@ -114,12 +129,13 @@ function buildGrid(height, elems) {
 
     for (let i = 0; i < elems.length; i++) {
         const elem = elems[i];
-        if (elem.dataset.focosCell) {
-            elem.classList.add('focusable');
-            const data = validFocosDataset(elem.dataset.focosCell);
-            elem.classList.add(data.class);
+        const subject = focosSubject(elem);
 
-            grid[data.cell[1]] && grid[data.cell[1]].push(elem);
+        if (elem.dataset.focosCell) {
+            const data = validFocosDataset(elem.dataset.focosCell);
+            subject.classList.add('focusable');
+            subject.classList.add(data.class);
+            grid[data.cell[1]] && grid[data.cell[1]].push(subject);
         }
     }
 
@@ -221,7 +237,7 @@ function run(opts, elems) {
 function focos(opts, callback) {
     callback && ($$g.callback = callback);
     // read all relevant elements
-    elems = document.querySelectorAll('[data-focos-cell]');
+    const elems = document.querySelectorAll('[data-focos-cell]');
     elems.length && run(validOpts(opts), elems);
 }
 
