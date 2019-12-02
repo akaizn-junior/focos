@@ -5,9 +5,6 @@
  */
 
 const $$g = {
-    grids: {},
-    refs: [],
-    usedKeys: [],
     globalPoint: [0, 0],
     ops: ['up', 'down', 'left', 'right'], // focos operations
     callback: () => {}
@@ -144,7 +141,7 @@ function validOpts(opts) {
     };
 
     // user inputs
-    let { id, keys, initialFocus, step, gridSize, focusOnClick } = opts;
+    let { keys, initialFocus, step, gridSize, focusOnClick } = opts;
 
     // validate size
     let Size = RegExp(/^[0-9]+x[0-9]+$/gm);
@@ -158,11 +155,7 @@ function validOpts(opts) {
     // validate the step to move from point to point
     step = Math.floor(Math.abs(step)) || 1;
 
-    // capture all reference elements being used
-    $$g.refs.push(id);
-
     return {
-        ref: id || 'noref',
         keys,
         initialFocus,
         step,
@@ -172,15 +165,14 @@ function validOpts(opts) {
 }
 
 function run(opts, elems) {
-    let { ref, keys, initialFocus, step, size, focusOnClick } = opts;
+    let { keys, initialFocus, step, size, focusOnClick } = opts;
 
     // grid with and height
     const width = size.cols;
     const height = size.rows;
 
     // build a grid out of the relevant elements
-    $$g.grids[ref] = buildGrid(height, elems);
-    const grid = $$g.grids[ref];
+    const grid = buildGrid(height, elems);
 
     // editable global entry point, will be focused first if enabled
     initialFocus && ($$g.globalPoint = initialFocus);
@@ -227,30 +219,9 @@ function run(opts, elems) {
 }
 
 function focos(opts, callback) {
-    const ref = opts.id || 'noref';
-
-    // stop if this grid is already built
-    if ($$g.grids[ref]) {
-        return;
-    }
-
     callback && ($$g.callback = callback);
-
     // read all relevant elements
-    let elems = [];
-    if (ref.length && ref !== 'noref') {
-        const refEl = document.getElementById(ref);
-        if(refEl) {
-            for(let i = 0; i < refEl.children.length; i++) {
-                if (refEl.children[i].dataset.focosCell) {
-                    elems.push(refEl.children[i]);
-                }
-            }
-        }
-    } else {
-        elems = document.querySelectorAll('[data-focos-cell]');
-    }
-
+    elems = document.querySelectorAll('[data-focos-cell]');
     elems.length && run(validOpts(opts), elems);
 }
 
