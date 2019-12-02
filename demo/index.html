@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Focos - Verdexdesign</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Simao Nziaka" />
+    <meta name="description" content="Focus elements on the screen" />
+    <meta
+      name="keywords"
+      content="focus, focos, simao, nziaka, grid, elements"
+    />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>
+          <span class="brand">Focos</span>
+        </h1>
+      </header>
+
+      <main role="main">
+        <section class="example">
+          <div class="notes">
+            <div class="text">
+              <b>Focos</b> tracks elements on the screen in a grid of a defined
+              size. You can navigate through the grid by using different keys.
+              <b>Focos</b> uses arrow keys for navigation by default, but
+              different bindings may be provided. Multiple bindings to the same
+              action are allowed. Navigate through the grid below using the
+              bindings defined on the code snippet.
+            </div>
+            <pre class="code-block" hidden>
+                window.focos({
+                  gridSize: "5x4",
+                  step: 1,
+                  initialFocus: [0, 0],
+                  focusOnClick: true,
+                  keys: {
+                    s: "up",
+                    z: "down",
+                    a: "left",
+                    d: "right"
+                  }
+                });
+            </pre>
+          </div>
+          <div id="grid" class="grid">
+            <div data-focos-cell="0,4">16</div>
+            <div data-focos-cell="1,4">17</div>
+            <div data-focos-cell="2,4">18</div>
+            <div data-focos-cell="3,4">19</div>
+
+            <div data-focos-cell="0,3">12</div>
+            <div data-focos-cell="1,3">13</div>
+            <div data-focos-cell="2,3">14</div>
+            <div data-focos-cell="3,3">15</div>
+
+            <div data-focos-cell="0,2">8</div>
+            <div data-focos-cell="1,2">9</div>
+            <div data-focos-cell="2,2">10</div>
+            <div data-focos-cell="3,2">11</div>
+
+            <div data-focos-cell="0,1">4</div>
+            <div data-focos-cell="1,1">5</div>
+            <div data-focos-cell="2,1">6</div>
+            <div data-focos-cell="3,1">7</div>
+
+            <div data-focos-cell="0,0">1</div>
+            <div data-focos-cell="1,0">2</div>
+            <div data-focos-cell="2,0">3</div>
+            <div data-focos-cell="3,0">4</div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <section class="author">
+          <h3>Author</h3>
+          <p>
+            <span>&copy; 2019</span>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              title="The genius that built this"
+              href="https://www.linkedin.com/in/simao-nziaka/"
+            >
+              Simao Nziaka
+            </a>
+          </p>
+          <p>Made with 💪🏾 in 🇺🇸</p>
+        </section>
+        <section class="source" id="grid2">
+          <h3>Source</h3>
+          <p data-focos-cell="0,3">
+            <a
+              title="Source code"
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/verdebydesign/focos"
+            >
+              Verdexdesign repository
+            </a>
+          </p>
+          <p data-focos-cell="0,2">
+            <a
+              title="Docs"
+              target="_blank"
+              rel="noreferrer"
+              href="https://verdebydesign.github.io/focos/"
+            >
+              Documentation
+            </a>
+          </p>
+          <p data-focos-cell="0,1">
+            <a
+              title="Report bugs"
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/verdebydesign/focos/issues"
+            >
+              Open an issue
+            </a>
+          </p>
+          <p data-focos-cell="0,0">
+            <a
+              title="MIT LICENSE"
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/verdebydesign/focos/blob/master/LICENSE"
+            >
+              License
+            </a>
+          </p>
+        </section>
+        <section>
+          <h3>Releases</h3>
+          <p>
+            <a
+              title="Latest CDN release"
+              target="_blank"
+              rel="noreferrer"
+              href="https://cdn.jsdelivr.net/gh/verdebydesign/focos/dist/latest/focos.min.js"
+            >
+              CDN Latest
+            </a>
+          </p>
+          <p>
+            <a
+              title="Github releases"
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/verdebydesign/focos/releases"
+            >
+              All
+            </a>
+          </p>
+        </section>
+      </footer>
+    </div>
+    <script src="../src/focos.js"></script>
+    <script>
+        window.focos({
+            id: 'grid',
+            gridSize: '5x4',
+            focusOnClick: true,
+            initialFocus: [0, 4],
+            keys: {
+                s: "up",
+                z: "down",
+                a: "left",
+                d: "right",
+            }
+        });
+
+        window.focos({
+            id: 'grid2',
+            gridSize: '4x1',
+            initialFocus: [0, 0],
+            keys: {
+                ArrowUp: "up",
+                ArrowDown: "down",
+                ArrowLeft: "left",
+                ArrowRight: "right"
+            }
+        });
+    </script>
+    <script src="app.js" defer></script>
+  </body>
+</html>

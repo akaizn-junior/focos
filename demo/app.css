@@ -1,0 +1,244 @@
+:root {
+    --link-blue: #2ac3ff;
+    --alice: aliceblue;
+    --brand: #0d0f4d;
+    --dark: #161616;
+    --dark-shade: #403e3e;
+    --bg-start: #2a2a72;
+    --bg-end: #009ffd;
+    --pop: rgb(226, 177, 43);
+  }
+
+  ::selection {
+    color: var(--alice);
+    background-color: var(--brand);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  ::-moz-selection {
+    color: var(--alice);
+    background-color: var(--brand);
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  body {
+    font-family: helvetica, arial, sans-serif;
+    background-color: var(--bg-start);
+    background-image: linear-gradient(315deg, var(--bg-start) 0%, var(--bg-end) 64%);
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-rows: 150px 1fr 300px;
+  }
+
+  /* Brand */
+
+  h1 {
+    color: var(--brand);
+    font-size: 50px;
+    text-align: center;
+    /* Eyeglass SVG LICENSE https://www.svgrepo.com/svg/275881/monocle-eyeglass */
+    background-image: url('assets/gold-monocle.svg');
+    background-size: 40px 50px;
+    background-position: 5% 75%;
+    -webkit-transition: ease 1s;
+    transition: ease 1s;
+  }
+
+  h1:hover {
+    background-position: 7% 75%;
+    -webkit-transition: ease 1s;
+    transition: ease 1s;
+  }
+
+  .brand {
+    background: var(--alice);
+    border-radius: 3px;
+    padding: 5px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* end Brand */
+
+  /* Footer */
+
+  footer {
+    font-size: 14px;
+    background-color: var(--dark);
+    color: var(--alice);
+    padding: 20px;
+    position: relative;
+    top: 75%;
+  }
+
+  footer section {
+    float: left;
+    padding-left: 50px;
+  }
+
+  footer.heading {
+    text-decoration: underline;
+    text-align: center;
+  }
+
+  /* end Footer */
+
+  /* Links */
+
+  a {
+    color: var(--alice);
+    text-decoration: none;
+  }
+
+  a[target="_blank"]::after {
+    content: '\279C';
+    color: var(--link-blue);
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--link-blue);
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: orange;
+    text-decoration: underline;
+  }
+
+  /* end Links */
+
+  /* Code block */
+
+  pre.code-block {
+    width: fit-content;
+    height: fit-content;
+    background-color: #d7ddf0;
+    font-size: 15px;
+    margin: 5% auto;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: auto;
+  }
+
+  .code-block code {
+    display: block;
+    line-height: 20px;
+    padding: 4px 0px;
+  }
+
+  .code-block code:nth-child(2n) {
+    background-color: #f0f3ff;
+  }
+
+  .code-block code:hover {
+    background-color: var(--dark-shade);
+    color: var(--alice)
+  }
+
+  .code-block .line-number {
+    padding: 0px 5px;
+    font-size: 11px;
+    color: gray;
+  }
+
+  .code-block code:hover .line-number {
+    color: #ffb4ff;
+    font-weight: bold;
+  }
+
+  /* end Code block */
+
+  /* Page examples */
+
+  .example {
+    margin: auto 10%;
+  }
+
+  .notes {
+    padding: 5px;
+    padding-bottom: 25px;
+    background-color: var(--alice);
+    min-height: 200px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .text {
+    width: 75%;
+    margin-left: 20%;
+    margin-top: 6%;
+    color: #090909;
+    font-size: 1.1em;
+    line-height: 24px;
+  }
+
+  /* end Page examples */
+
+  /* Example grid */
+
+  .grid {
+    clear: both;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    min-width: 300px;
+    background-color: var(--alice);
+  }
+
+  .grid div {
+    padding: 25px 5px;
+    border: 1px dashed red;
+    text-align: center;
+    font-size: 3em;
+    cursor: cell;
+  }
+
+  .focusable.focused {
+    background-color: orange;
+    text-shadow: 1px 1px 1px var(--dark-shade);
+    color: var(--dark);
+  }
+
+  .focusable:focus {
+    outline: 2px dashed blue;
+  }
+
+  .focusable:hover {
+    background-color: blueviolet;
+    color: var(--alice);
+  }
+
+  .focusable:active {
+    background-color: var(--pop);
+    color: var(--alice);
+  }
+
+  .focusable.focused.focos-cell12 {
+    background-color: aqua;
+    font-weight: bolder;
+  }
+
+  .focusable.focused.focos-cell00 {
+    background-color: red;
+    font-weight: bolder;
+    font-stretch: condensed;
+    font-style: italic;
+    color: wheat;
+    background-image: linear-gradient(to right, red 0%, #DD2476 1%, #FF512F 100%);
+  }
+
+  /* end Example grid */
