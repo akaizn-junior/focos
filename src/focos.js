@@ -7,7 +7,8 @@
 const $$g = {
     globalPoint: [0, 0],
     ops: ['up', 'down', 'left', 'right'], // focos operations
-    callback: () => {}
+    callback: () => {},
+    focusWithTabIndex: false
 };
 
 function nextPoint(point, origin, width, height, step = 1) {
@@ -88,7 +89,7 @@ function clearFocus() {
 
     if (subject) {
         subject.classList.remove('focused');
-        subject.removeAttribute('tabindex');
+        $$g.focusWithTabIndex && subject.removeAttribute('tabindex');
     }
 }
 
@@ -111,7 +112,7 @@ function validFocosDataset(cellData) {
 function focusTarget(element) {
     const subject = focosSubject(element);
     if (subject) {
-        subject.setAttribute('tabindex', '0');
+        $$g.focusWithTabIndex && subject.setAttribute('tabindex', '0');
         subject.focus && subject.focus();
         subject.classList.add('focused');
     }
@@ -157,7 +158,7 @@ function validOpts(opts) {
     };
 
     // user inputs
-    let { keys, initialFocus, step, gridSize, focusOnClick } = opts;
+    let { keys, initialFocus, step, gridSize, focusOnClick, focusWithTabIndex } = opts;
 
     // validate size
     let Size = RegExp(/^[0-9]+x[0-9]+$/gm);
@@ -170,6 +171,9 @@ function validOpts(opts) {
 
     // validate the step to move from point to point
     step = Math.floor(Math.abs(step)) || 1;
+
+    // use tabindex on focus or not
+    $$g.focusWithTabIndex = focusWithTabIndex;
 
     return {
         keys,
