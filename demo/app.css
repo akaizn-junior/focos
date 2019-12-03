@@ -44,7 +44,7 @@ h1 {
     font-size: 50px;
     text-align: center;
     /* Eyeglass SVG LICENSE https://www.svgrepo.com/svg/275881/monocle-eyeglass */
-    background-image: url('assets/gold-monocle.svg');
+    background-image: url('https://cdn.glitch.com/f00a44c3-a2c4-40b6-9bce-33109af914c4%2Fgold-monocle.svg?v=1575101106106');
     background-size: 40px 50px;
     background-position: 5% 75%;
     -webkit-transition: ease 1s;
@@ -199,11 +199,9 @@ pre.code-block {
 /* Example grid */
 
 .grid {
-    clear: both;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    min-width: 300px;
     background-color: var(--alice);
 }
 
@@ -254,9 +252,42 @@ pre.code-block {
 /* Media queries */
 
 @media (max-width: 1000px) {
+    .text {
+        margin-top: 0px;
+    }
+
     .notes {
         grid-template-columns: none;
         grid-template-rows: 1fr auto;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 45px;
+        background-position: 2%;
+    }
+
+    .code-wrapper {
+        padding: 10px 0px;
+    }
+
+    .text {
+        font-size: 1em;
+    }
+
+    .notes {
+        padding: 8px;
+    }
+
+    footer {
+        padding: 5px;
+        top: 15%;
+    }
+
+    footer section {
+        float: none;
+        padding-bottom: 10px;
     }
 }
 
