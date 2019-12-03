@@ -1,6 +1,6 @@
 {
     "name": "focos",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Add focus to elements on the screen referenced by coordinates",
     "main": "src/focos.js",
     "repository": {
