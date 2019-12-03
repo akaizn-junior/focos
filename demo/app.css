@@ -34,7 +34,7 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-rows: 150px 1fr auto;
+    grid-template-rows: 150px auto auto;
 }
 
 /* Brand */
