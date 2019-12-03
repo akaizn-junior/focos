@@ -246,4 +246,4 @@ function focos(opts, callback) {
 }
 
 // Expose the API
-window['focos'] = focos;
+window.focos = focos;
