@@ -1,6 +1,6 @@
 // Code block
 (function () {
-    var codeBlocks = document.getElementsByTagName("pre");
+    var codeBlocks = document.querySelectorAll("pre.code-block");
 
     for (var i = 0; i < codeBlocks.length; i++) {
         var block = codeBlocks[i];

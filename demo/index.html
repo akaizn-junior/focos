@@ -34,23 +34,22 @@
                     bindings defined on the code snippet.
                 </p>
                 <div>
-                    <b>How it works</b>
-                    <p>
-                        Focos uses css classes, the <span class="piece-of-code">.focus</span> method on DOM elements
-                        and <span class="piece-of-code">tabindex</span> to focus items.
-                        Focos sets the following css classes: <span class="piece-of-code">focusable, focos-cell(number)</span>
-                        and <span class="piece-of-code">focused</span>.
-                        By using a combination of approaches, different scenarios may be covered when using the library.
-                        Scenario number 1, the user may want to add focus to menu items on a menu, but still use links
-                    </p>
-                </div>
-                <div>
                     <b>Usage</b>
                     <p>
                         Get it via jsDelivr or download it from the repository.
                         Links <a href="#releases">below.</a>
-                        Load the library and call it as follows.
                     </p>
+                    <div class="piece-of-code">
+                        ...<br/>
+                        &lt;ul&gt;<br/>
+                        &nbsp;&nbsp;&lt;li data-focos-cell="0,0"&gt;Item 1&lt;/li&gt;<br/>
+                        &nbsp;&nbsp;&lt;li data-focos-cell="1,0"&gt;Item 2&lt;/li&gt;<br/>
+                        &nbsp;&nbsp;&lt;li data-focos-cell="2,0"&gt;Item 3&lt;/li&gt;<br/>
+                        &nbsp;&nbsp;&lt;li data-focos-cell="3,0"&gt;Item 4&lt;/li&gt;<br/>
+                        &lt;/ul&gt;<br/>
+                        ...
+                    </div>
+                    The markup above will generate a 4x1 focos grid.
                     <p>
                         <div class="piece-of-code">
                             &lt;script src="https://cdn.jsdelivr.net/gh/verdebydesign/focos/dist/latest/focos.min.js"&gt;&lt;/script&gt;
@@ -63,7 +62,7 @@
                     <b>Settings</b>
                     <p>
                         Focos requires a settings object, for initial setup.
-                        Let's look at the available options: <span class="piece-of-code">gridSize</span>
+                        Options are: <span class="piece-of-code">gridSize</span>
                         The only required setting for the library. <b>Focos</b> will use the grid size value
                         to construct a grid for navigation through the elements located on specific cells.
                         <span class="piece-of-code">initialFocus</span>, this cell gets initial focus, as soon as the page loads.
@@ -74,7 +73,7 @@
                     </p>
                 </div>
             </div>
-            <div>
+            <div class="code-wrapper">
                 <pre class="code-block">
                 window.focos({
                 gridSize: "5x4",
