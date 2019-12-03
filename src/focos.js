@@ -85,11 +85,11 @@ function focosSubject(elem) {
 }
 
 function clearFocus() {
-    const subject = focosSubject(document.getElementsByClassName('focused')[0]);
+    const elem = document.getElementsByClassName('focused')[0];
 
-    if (subject) {
-        subject.classList.remove('focused');
-        $$g.focusWithTabIndex && subject.removeAttribute('tabindex');
+    if (elem) {
+        elem.classList.remove('focused');
+        $$g.focusWithTabIndex && elem.removeAttribute('tabindex');
     }
 }
 
@@ -112,9 +112,9 @@ function validFocosDataset(cellData) {
 function focusTarget(element) {
     const subject = focosSubject(element);
     if (subject) {
-        $$g.focusWithTabIndex && subject.setAttribute('tabindex', '0');
+        $$g.focusWithTabIndex && element.setAttribute('tabindex', '0');
         subject.focus && subject.focus();
-        subject.classList.add('focused');
+        element.classList.add('focused');
     }
 }
 
@@ -130,13 +130,12 @@ function buildGrid(height, elems) {
 
     for (let i = 0; i < elems.length; i++) {
         const elem = elems[i];
-        const subject = focosSubject(elem);
 
         if (elem.dataset.focosCell) {
             const data = validFocosDataset(elem.dataset.focosCell);
-            subject.classList.add('focusable');
-            subject.classList.add(data.class);
-            grid[data.cell[1]] && grid[data.cell[1]].push(subject);
+            elem.classList.add('focusable');
+            elem.classList.add(data.class);
+            grid[data.cell[1]] && grid[data.cell[1]].push(elem);
         }
     }
 
