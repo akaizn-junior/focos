@@ -1,9 +1,9 @@
 {
-    "codename": "babyface",
-    "branch": "x.1.0",
-    "full": "v0.1.0",
-    "raw": "0.1.0",
+    "codename": "toddler",
+    "branch": "0.1.x",
+    "full": "v0.1.1",
+    "raw": "0.1.1",
     "major": "0",
     "minor": "1",
-    "patch": "0"
+    "patch": "1"
 }
