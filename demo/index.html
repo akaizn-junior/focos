@@ -25,27 +25,75 @@
         <section class="example">
           <div class="notes">
             <div class="text">
-              <b>Focos</b> tracks elements on the screen in a grid of a defined
-              size. You can navigate through the grid by using different keys.
-              <b>Focos</b> uses arrow keys for navigation by default, but
-              different bindings may be provided. Multiple bindings to the same
-              action are allowed. Navigate through the grid below using the
-              bindings defined on the code snippet.
+                <p>
+                    <b>Focos</b> is a navigation library that tracks elements on the screen defined in a grid of a certain
+                    size. You can navigate through the grid by using different keys.
+                    For navigation <b>Focos</b> uses arrow keys by default, but
+                    different bindings may be provided. Multiple bindings to the same
+                    action are allowed. You may navigate through the grid below using the
+                    bindings defined on the code snippet.
+                </p>
+                <div>
+                    <b>How it works</b>
+                    <p>
+                        Focos uses css classes, the <span class="piece-of-code">.focus</span> method on DOM elements
+                        and <span class="piece-of-code">tabindex</span> to focus items.
+                        Focos sets the following css classes: <span class="piece-of-code">focusable, focos-cell(number)</span>
+                        and <span class="piece-of-code">focused</span>.
+                        By using a combination of approaches, different scenarios may be covered when using the library.
+                        Scenario number 1, the user may want to add focus to menu items on a menu, but still use links
+                    </p>
+                </div>
+                <div>
+                    <b>Usage</b>
+                    <p>
+                        Get it via jsDelivr or download it from the repository.
+                        Links <a href="#releases">below.</a>
+                        Load the library and call it as follows.
+                    </p>
+                    <p>
+                        <div class="piece-of-code">
+                            &lt;script src="https://cdn.jsdelivr.net/gh/verdebydesign/focos/dist/latest/focos.min.js"&gt;&lt;/script&gt;
+                            <br/>
+                            &lt;script&gt;<br/>&nbsp;&nbsp;window.focos({/* Settings */});<br/>&lt;script&gt;
+                        </div>
+                    </p>
+                </div>
+                <div>
+                    <b>Settings</b>
+                    <p>
+                        Focos requires a settings object, for initial setup.
+                        Let's look at the available options: <span class="piece-of-code">gridSize</span>
+                        The only required setting for the library. <b>Focos</b> will use the grid size value
+                        to construct a grid for navigation through the elements located on specific cells.
+                        <span class="piece-of-code">initialFocus</span>, this cell gets initial focus, as soon as the page loads.
+                        <span class="piece-of-code">step</span> the distance between a point to the next.
+                        <span class="piece-of-code">focusOnClick</span> when this flag is on, cells are focusable on mouse down.
+                        <span class="piece-of-code">keys</span> key bindings for navigation. Multiple keys may be bound to an orientation.
+                        A key name such as 'a' or 'ArrowUp' or key code may be provided as a binding.
+                    </p>
+                </div>
             </div>
-            <pre class="code-block" hidden>
-              window.focos({
+            <div>
+                <pre class="code-block">
+                window.focos({
                 gridSize: "5x4",
                 step: 1,
-                initialFocus: [0, 0],
+                initialFocus: [0, 4],
                 focusOnClick: true,
                 keys: {
-                  s: "up",
-                  z: "down",
-                  a: "left",
-                  d: "right"
-                }
-              });
-            </pre>
+                    s: "up",
+                    z: "down",
+                    a: "left",
+                    d: "right",
+                    37: "up",
+                    38: "down",
+                    39: "left",
+                    40: "right"
+                 }
+                });
+                </pre>
+            </div>
           </div>
           <div id="grid" class="grid">
             <div data-focos-cell="0,4">16</div>
@@ -135,7 +183,7 @@
             </a>
           </p>
         </section>
-        <section>
+        <section id="releases">
           <h3>Releases</h3>
           <p>
             <a
@@ -166,6 +214,7 @@
             gridSize: '5x4',
             focusOnClick: true,
             initialFocus: [0, 4],
+            focusWith: 'tabindex',
             keys: {
                 s: "up",
                 z: "down",
